@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PETS - הורדה והתקנה</title>
+  <meta name="description" content="PETS - תזכורות למשימות חוזרות. הוראות הורדה והתקנה לאנדרואיד.">
+  <link rel="icon" href="img/icon.png">
+  <style>
+    /* צבעים כמו באפליקציה: בהיר / כהה לפי הגדרות הטלפון */
+    :root {
+      --bg: #F8F9FA;
+      --card: #FFFFFF;
+      --border: #E0E2EC;
+      --text: #1F1F1F;
+      --muted: #5F6368;
+      --accent: #1A73E8;
+      --accent-text: #FFFFFF;
+      --note-bg: #FEF7E0;
+      --note-border: #F9DD8C;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #131314;
+        --card: #1E1F22;
+        --border: #2E2F33;
+        --text: #E3E3E3;
+        --muted: #9AA0A6;
+        --accent: #4C8DFF;
+        --accent-text: #FFFFFF;
+        --note-bg: #2B2616;
+        --note-border: #5C4B12;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+
+    /* --- ראש הדף --- */
+    .hero { text-align: center; padding: 16px 0 8px; }
+    .hero img { width: 112px; height: 112px; border-radius: 26px; }
+    .hero h1 { font-size: 40px; margin: 12px 0 4px; letter-spacing: 1px; }
+    .hero p { margin: 0 auto 20px; color: var(--muted); max-width: 30em; }
+    .download {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--accent-text);
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 999px;
+    }
+    .download small { display: block; font-size: 14px; font-weight: 400; opacity: 0.9; }
+    .android-only { margin-top: 10px; font-size: 14px; color: var(--muted); }
+
+    /* --- סקשנים --- */
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    h2 { font-size: 22px; margin: 0 0 12px; }
+    ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+    ol.steps > li { counter-increment: step; padding: 14px 0; border-top: 1px solid var(--border); }
+    ol.steps > li:first-child { border-top: none; padding-top: 0; }
+    ol.steps > li > p:first-child::before {
+      content: counter(step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-left: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-size: 15px;
+      font-weight: 600;
+    }
+    p { margin: 0 0 8px; }
+    b { font-weight: 600; }
+    .muted { color: var(--muted); font-size: 15px; }
+    .note {
+      background: var(--note-bg);
+      border: 1px solid var(--note-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+
+    /* --- צילומי מסך: קטנים בתוך הצעד, לחיצה פותחת בגודל מלא --- */
+    .shots { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    /* זוג צילומים זה לצד זה גם בטלפון: כל אחד עד חצי רוחב */
+    .shots a { display: block; flex: 0 1 calc(50% - 5px); max-width: 220px; }
+    .shots img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 360px;
+      object-fit: contain;
+      object-position: top;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    footer { text-align: center; margin-top: 28px; color: var(--muted); font-size: 15px; }
+  </style>
+</head>
+<body>
+<main>
+
+  <!-- ===== ראש הדף: אייקון, שם, כפתור הורדה ===== -->
+  <header class="hero">
+    <img src="img/icon.png" alt="האייקון של PETS">
+    <h1>PETS</h1>
+    <p>תזכורות למשימות חוזרות - חיות מחמד, בית, רכב, תשלומים. הכל במקום אחד, עם סנכרון ליומן גוגל.</p>
+    <!-- הקישור תמיד מוריד את הגרסה האחרונה ב-Releases. בעדכון: לשנות רק את מספר הגרסה בשורה שמתחת -->
+    <a class="download" href="https://github.com/Bussuf/pets-landing-page/releases/latest/download/PETS.apk">
+      הורדה
+      <small>גרסה 1.0.0 · 28MB</small>
+    </a>
+    <div class="android-only">לטלפונים עם אנדרואיד בלבד</div>
+  </header>
+
+  <!-- ===== התקנה ===== -->
+  <section>
+    <h2>התקנה</h2>
+    <ol class="steps">
+      <!-- צעד 1: הרשאה להתקין -->
+      <li>
+        <p>פותחים את הקובץ שהורד. אם מופיע <b>"התקנת APK מוגבלת"</b> - לוחצים <b>"הגדרות"</b>, מדליקים <b>"אשר הרשאה"</b> וחוזרים אחורה.</p>
+        <p class="muted">זה קורה רק בפעם הראשונה, כי האפליקציה לא מגיעה מהחנות.</p>
+        <div class="shots">
+          <a href="img/01-install-blocked.png"><img src="img/01-install-blocked.png" alt="התקנת APK מוגבלת" loading="lazy"></a>
+          <a href="img/02-allow-source.png"><img src="img/02-allow-source.png" alt="אשר הרשאה" loading="lazy"></a>
+        </div>
+      </li>
+      <!-- צעד 2: Play Protect -->
+      <li>
+        <p>מופיע <b>Google Play Protect</b>: לוחצים <b>"לסריקת האפליקציה"</b>. אחרי כמה שניות - "האפליקציה הזו נראית בטוחה" - לוחצים <b>"התקנה"</b>.</p>
+        <div class="shots">
+          <a href="img/03-play-scan.png"><img src="img/03-play-scan.png" alt="מומלץ לסרוק את האפליקציה" loading="lazy"></a>
+          <a href="img/04-play-safe.png"><img src="img/04-play-safe.png" alt="האפליקציה הזו נראית בטוחה" loading="lazy"></a>
+        </div>
+      </li>
+      <!-- צעד 3: התקנה ופתיחה -->
+      <li>
+        <p><b>"התקנה"</b> ואחר כך <b>"פתיחה"</b>.</p>
+        <div class="shots">
+          <a href="img/05-install.png"><img src="img/05-install.png" alt="להתקין את האפליקציה?" loading="lazy"></a>
+          <a href="img/06-open.png"><img src="img/06-open.png" alt="האפליקציה הותקנה" loading="lazy"></a>
+        </div>
+      </li>
+      <!-- צעד 4: התראות -->
+      <li>
+        <p>מאשרים התראות - <b>"יש אישור"</b>. בלי זה התזכורות לא יגיעו.</p>
+        <div class="shots">
+          <a href="img/07-notifications.png"><img src="img/07-notifications.png" alt="לאשר לאפליקציה לשלוח התראות" loading="lazy"></a>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== יומן גוגל (רשות) ===== -->
+  <section>
+    <h2>חיבור ליומן גוגל <span class="muted">(לא חובה)</span></h2>
+    <div class="note">לפני שמתחילים: <b>שלחו לי את כתובת הג'ימייל שלכם</b> - אני צריך להוסיף אתכם לרשימה.</div>
+    <ol class="steps">
+      <li>
+        <p>באפליקציה: <b>הגדרות</b> ← "סנכרון יומן גוגל" ← <b>"התחבר"</b>.</p>
+        <div class="shots">
+          <a href="img/10-settings-connect.png"><img src="img/10-settings-connect.png" alt="הגדרות - התחבר" loading="lazy"></a>
+        </div>
+      </li>
+      <li>
+        <p>בוחרים את החשבון ששלחתם לי.</p>
+        <div class="shots">
+          <a href="img/11-pick-account.png"><img src="img/11-pick-account.png" alt="בחירת חשבון" loading="lazy"></a>
+        </div>
+      </li>
+      <li>
+        <p>מופיע <b>"Google לא אימתה את האפליקציה הזו"</b> - זה תקין: האפליקציה פרטית ולא בחנות. לוחצים <b>"המשך"</b>.</p>
+        <p class="muted">אם במקום זה מופיע "הגישה חסומה" - עוד לא הוספתי אתכם. כתבו לי ונסו שוב אחר כך.</p>
+        <div class="shots">
+          <a href="img/13-not-verified.png"><img src="img/13-not-verified.png" alt="Google לא אימתה את האפליקציה הזו" loading="lazy"></a>
+          <a href="img/12-blocked.png"><img src="img/12-blocked.png" alt="הגישה חסומה" loading="lazy"></a>
+        </div>
+      </li>
+      <li>
+        <p>במסך <b>"כניסה אל PETS"</b> לוחצים <b>"המשך"</b>.</p>
+        <div class="shots">
+          <a href="img/135-sign-in.png"><img src="img/135-sign-in.png" alt="כניסה אל PETS" loading="lazy"></a>
+        </div>
+      </li>
+      <li>
+        <p><b>חשוב:</b> מסמנים ✓ ליד <b>"הצגה ועריכה של אירועים"</b> ורק אז <b>"המשך"</b>. בלי הסימון הסנכרון לא יעבוד.</p>
+        <div class="shots">
+          <a href="img/14-calendar-permission.png"><img src="img/14-calendar-permission.png" alt="הרשאה ליומן" loading="lazy"></a>
+          <a href="img/15-checkbox.png"><img src="img/15-checkbox.png" alt="הסימון מסומן" loading="lazy"></a>
+        </div>
+      </li>
+      <li>
+        <p>מופיע <b>"מחובר ליומן גוגל"</b>. מעכשיו, ביצירת משימה מדליקים "יומן גוגל" - והיא מופיעה ביומן 🐾</p>
+        <div class="shots">
+          <a href="img/16-connected.png"><img src="img/16-connected.png" alt="מחובר ליומן גוגל" loading="lazy"></a>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== שהתזכורות יגיעו ===== -->
+  <section>
+    <h2>שהתזכורות יגיעו תמיד</h2>
+    <p>חלק מהטלפונים "מרדימים" אפליקציות כדי לחסוך סוללה, ואז תזכורות מתפספסות.</p>
+    <p><b>בסמסונג:</b> הגדרות ← אפליקציות ← PETS ← סוללה ← <b>"ללא הגבלה"</b>.</p>
+    <p class="muted">בטלפונים אחרים: לחפש בהגדרות "סוללה" או "אופטימיזציה" ולהחריג את PETS.</p>
+  </section>
+
+  <!-- ===== גיבוי ===== -->
+  <section>
+    <h2>גיבוי</h2>
+    <p>הנתונים נשמרים רק בטלפון שלכם. מדי פעם: <b>הגדרות ← "ייצוא גיבוי"</b>, ושומרים את הקובץ בדרייב או שולחים לעצמכם.</p>
+    <p class="muted">בטלפון חדש: מתקינים, ואז הגדרות ← "שחזור מגיבוי".</p>
+  </section>
+
+  <!-- ===== עדכונים ===== -->
+  <section>
+    <h2>עדכונים</h2>
+    <p>כשתצא גרסה חדשה אשלח הודעה. נכנסים לדף הזה, מורידים ומתקינים מעל ("לעדכן את האפליקציה?" ← <b>"עדכון"</b>). <b>הנתונים נשארים</b> - אין צורך להסיר קודם.</p>
+  </section>
+
+  <!-- ===== פרטיות ===== -->
+  <section>
+    <h2>פרטיות</h2>
+    <p>אין שרת ואין חשבון - המשימות שלכם נשארות בטלפון. כשמשהו משתבש נשלח דוח שגיאה טכני ואנונימי, <b>בלי שום תוכן שלכם</b>, כדי שאוכל לתקן. אפשר לכבות: הגדרות ← אודות.</p>
+  </section>
+
+  <footer>
+    שאלות? אם הגעתם לדף הזה, כנראה שיש לכם את המספר שלי - תרגישו בנוח לכתוב 🐾<br>
+    PETS 1.0.0
+  </footer>
+
+</main>
+</body>
+</html>
