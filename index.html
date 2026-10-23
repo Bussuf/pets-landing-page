@@ -113,6 +113,35 @@
       border: 1px solid var(--border);
       border-radius: 10px;
     }
+    /* --- גלריה: גלילה לרוחב עם "הצמדה" לכל צילום, לחיצה פותחת בגודל מלא --- */
+    .gallery {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 4px 16px 12px;
+      margin: 0 -16px;
+      scrollbar-width: thin;
+    }
+    .gallery figure { flex: 0 0 62%; max-width: 230px; margin: 0; scroll-snap-align: center; }
+    .gallery .frame {
+      aspect-ratio: 9 / 19.5;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .gallery .frame.placeholder { border-style: dashed; }
+    .gallery a.frame { padding: 0; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery figcaption { margin-top: 8px; font-size: 14px; text-align: center; color: var(--muted); line-height: 1.4; }
     footer { text-align: center; margin-top: 28px; color: var(--muted); font-size: 15px; }
   </style>
 </head>
@@ -134,6 +163,46 @@
     </a>
     <div class="android-only">לטלפונים עם אנדרואיד בלבד</div>
   </header>
+
+  <!-- ===== הצצה לאפליקציה (גלריה) ===== -->
+  <section>
+    <h2>הצצה לאפליקציה</h2>
+    <p class="muted">גוללים הצידה, ולחיצה על תמונה פותחת אותה בגודל מלא.</p>
+    <div class="gallery">
+      <figure>
+        <a class="frame" href="img/gallery/dashboard.png"><img src="img/gallery/dashboard.png" alt="כל המשימות לפי הסדר: באיחור, היום ובהמשך" loading="lazy"></a>
+        <figcaption>כל המשימות לפי הסדר: באיחור, היום ובהמשך</figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/gallery/card.png"><img src="img/gallery/card.png" alt="כרטיס פתוח: פרטים, השלמה ועוד פעולות" loading="lazy"></a>
+        <figcaption>כרטיס פתוח: פרטים, השלמה ועוד פעולות</figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/gallery/analysis.png"><img src="img/gallery/analysis.png" alt="ניתוח מעקב: מצב, אחוז בזמן ולוח ביצועים" loading="lazy"></a>
+        <figcaption>ניתוח מעקב: מצב, אחוז בזמן ולוח ביצועים</figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/gallery/pace.png"><img src="img/gallery/pace.png" alt="הקצב שלכם: איחורים והקדמות במבט אחד" loading="lazy"></a>
+        <figcaption>הקצב שלכם: איחורים והקדמות במבט אחד</figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/gallery/calendar.png"><img src="img/gallery/calendar.png" alt="רצפים בלוח הביצועים" loading="lazy"></a>
+        <figcaption>רצפים בלוח הביצועים</figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/gallery/habits.png"><img src="img/gallery/habits.png" alt="באילו ימים אתם באמת עושים את זה" loading="lazy"></a>
+        <figcaption>באילו ימים אתם באמת עושים את זה</figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/gallery/create.png"><img src="img/gallery/create.png" alt="משימה חדשה: תדירות, תזכורת ויומן גוגל" loading="lazy"></a>
+        <figcaption>משימה חדשה: תדירות, תזכורת ויומן גוגל</figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/gallery/drawer.png"><img src="img/gallery/drawer.png" alt="כל הקבוצות שלכם, לכל תחום בחיים" loading="lazy"></a>
+        <figcaption>כל הקבוצות שלכם, לכל תחום בחיים</figcaption>
+      </figure>
+    </div>
+  </section>
 
   <!-- ===== לפני שמתחילים ===== -->
   <section>
